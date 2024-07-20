@@ -2,7 +2,10 @@ const express=require("express");
 const app=express();
 const db=require("./db.js");
 const bodyParser=require("body-parser");
+require('dotenv').config();
 app.use(bodyParser.json());//store the data in req.body in json form
+
+const PORT=process.env.PORT;
 
 
 app.get('/',(req,res)=>{
@@ -21,6 +24,6 @@ app.use('/menu',menuRoutes);
 
 
 
-app.listen(8000,()=>{
+app.listen(PORT,()=>{
     console.log("server started  at port 8000");
 })
